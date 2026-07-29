@@ -3,63 +3,180 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Recallio 下载</title>
+<title>Recallio — 个人作品记录</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    background: #f7f3ea;
-    color: #2c2c2c;
+    font-family: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: #FBF6F3;
+    color: #2D242E;
     min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 24px;
+    background-image:
+      radial-gradient(ellipse at 20% 20%, rgba(107,91,110,0.04) 0%, transparent 50%),
+      radial-gradient(ellipse at 80% 80%, rgba(157,138,158,0.04) 0%, transparent 50%);
   }
   .card {
-    background: #fff;
+    background: #FFFCF9;
     border-radius: 16px;
-    padding: 40px 32px;
-    max-width: 420px;
+    padding: 44px 36px 36px;
+    max-width: 440px;
     width: 100%;
-    box-shadow: 0 1px 3px rgba(62,111,100,0.08);
-    border: 1px solid rgba(62,111,100,0.12);
+    box-shadow: 0 2px 12px rgba(107,91,110,0.06), 0 8px 32px rgba(107,91,110,0.04);
+    border: 0.5px solid #E5DFD9;
     text-align: center;
   }
-  h1 { font-size: 28px; font-weight: 700; color: #3e6f64; margin-bottom: 6px; }
-  .sub { font-size: 14px; color: #888; margin-bottom: 32px; }
+  .logo {
+    width: 48px;
+    height: 48px;
+    background: #6B5B6E;
+    border-radius: 10px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 16px;
+  }
+  .logo svg { width: 24px; height: 24px; fill: #fff; }
+  h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 30px;
+    font-weight: 700;
+    color: #6B5B6E;
+    letter-spacing: -0.3px;
+    margin-bottom: 6px;
+  }
+  .sub {
+    font-size: 14px;
+    color: #6B5E6C;
+    margin-bottom: 36px;
+    font-weight: 500;
+  }
+  .section-label {
+    font-family: 'Outfit', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #9D8A9E;
+    margin-bottom: 10px;
+  }
   .btn {
-    display: block;
-    padding: 14px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 14px 24px;
     border-radius: 12px;
-    font-size: 16px;
+    font-size: 15px;
     font-weight: 600;
     text-decoration: none;
-    margin-bottom: 12px;
-    transition: transform 0.15s;
+    margin-bottom: 10px;
+    transition: background 0.2s, transform 0.12s;
+    font-family: 'Outfit', sans-serif;
   }
-  .btn:active { transform: scale(0.98); }
-  .btn-android { background: #3e6f64; color: #fff; }
-  .btn-windows { background: #e8f0ed; color: #3e6f64; }
-  .code { font-size: 12px; font-weight: 400; opacity: 0.6; margin-left: 4px; }
-  .footer { margin-top: 28px; font-size: 12px; color: #aaa; line-height: 1.8; }
+  .btn:active { transform: scale(0.985); }
+  .btn-primary {
+    background: #6B5B6E;
+    color: #fff;
+  }
+  .btn-primary:hover { background: #5C4D5F; }
+  .btn-secondary {
+    background: #F0EAE5;
+    color: #5C4D5F;
+  }
+  .btn-secondary:hover { background: #E8E0D9; }
+  .btn svg { width: 18px; height: 18px; flex-shrink: 0; }
+  .size-tag { font-size: 11px; font-weight: 400; opacity: 0.65; }
+  .platform-group { margin-bottom: 18px; }
+  .platform-group:last-child { margin-bottom: 0; }
+  .divider {
+    width: 40px; height: 1px; background: #DDD7D0;
+    margin: 28px auto;
+  }
+  .footer {
+    margin-top: 28px;
+    font-size: 12px;
+    color: #B0A8B0;
+    line-height: 1.9;
+    font-weight: 500;
+  }
+  .badge {
+    display: inline-block;
+    background: #F0EAE5;
+    color: #6B5E6C;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 6px;
+    letter-spacing: 0.3px;
+  }
+  @media (prefers-color-scheme: dark) {
+    body {
+      background: #1E1A1F;
+      background-image:
+        radial-gradient(ellipse at 20% 20%, rgba(157,138,158,0.06) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 80%, rgba(107,91,110,0.06) 0%, transparent 50%);
+    }
+    .card {
+      background: #262227;
+      border-color: #353035;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.2), 0 8px 32px rgba(0,0,0,0.15);
+    }
+    h1 { color: #C4B5C7; }
+    .sub { color: #B0A8B0; }
+    .section-label { color: #9D8A9E; }
+    .btn-primary { background: #9D8A9E; }
+    .btn-primary:hover { background: #8B7A8C; }
+    .btn-secondary { background: #2A252B; color: #B0A8B0; }
+    .btn-secondary:hover { background: #322D33; }
+    .divider { background: #3A353A; }
+    .footer { color: #7A6E7A; }
+    .badge { background: #2A252B; color: #9D8A9E; }
+    .logo { background: #9D8A9E; }
+  }
 </style>
 </head>
 <body>
 <div class="card">
+  <div class="logo">
+    <svg viewBox="0 0 24 24"><path d="M19 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 4h5v8l-2.5-1.5L6 12V4z"/></svg>
+  </div>
   <h1>Recallio</h1>
-  <p class="sub">个人作品记录工具 · v0.1.0</p>
+  <p class="sub">个人作品记录工具 &nbsp;<span class="badge">v0.1.0</span></p>
 
-  <a class="btn btn-android" href="https://wwbtq.lanzoub.com/iqVCA3xx2fsf" target="_blank">
-    Android 下载<span class="code">提取码 bnfw</span>
-  </a>
+  <div class="platform-group">
+    <p class="section-label">Android</p>
+    <a class="btn btn-primary" href="https://github.com/sb6dsa/Recallio/releases/download/v0.1.0/app-arm64-v8a-release.apk">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+      arm64-v8a 下载 <span class="size-tag">21.6 MB</span>
+    </a>
+    <a class="btn btn-secondary" href="https://github.com/sb6dsa/Recallio/releases/download/v0.1.0/app-armeabi-v7a-release.apk">
+      armeabi-v7a <span class="size-tag">19.7 MB</span>
+    </a>
+    <a class="btn btn-secondary" href="https://github.com/sb6dsa/Recallio/releases/download/v0.1.0/app-x86_64-release.apk">
+      x86_64（模拟器）<span class="size-tag">23.0 MB</span>
+    </a>
+  </div>
 
-  <a class="btn btn-windows" href="https://wwbtq.lanzoub.com/ijOkv3xx26tc" target="_blank">
-    Windows 下载<span class="code">提取码 81kb</span>
-  </a>
+  <div class="divider"></div>
+
+  <div class="platform-group">
+    <p class="section-label">Windows</p>
+    <a class="btn btn-secondary" href="https://github.com/sb6dsa/Recallio/releases/download/v0.1.0/Recallio-Windows-x64.zip">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+      Windows x64 下载
+    </a>
+  </div>
 
   <p class="footer">
     本地优先 · 无需账号 · 不上传数据<br>
+    支持动画 / 漫画 / 小说 / 游戏 / 电影<br>
     安装前请卸载旧版本
   </p>
 </div>
